@@ -40,11 +40,15 @@ let button = document.querySelector("button");
 const createElement = () => {
     const listItems = document.createElement("li")
     const label = document.createElement("Label");
-    const edit = document.createElement("Button");
     const del = document.createElement("Button");
     label.innerHTML = itemInput.value;
-    edit.innerHTML = "Edit";
+    del.addEventListener ("click", () => {
+        listOfItems.removeChild(listItems);
+    })
     del.innerHTML = "Delete";
+    const edit = document.createElement("Button");
+    edit.className = "Edit";
+    edit.innerHTML = "Edit";
     listItems.appendChild(label);
     label.appendChild(edit);  
     label.appendChild(del);
@@ -53,8 +57,23 @@ const createElement = () => {
     return listItems;
 };
 
+// function handleDelete() {
+//     console.log(this, "I am running");
+//     let listItems = this.parentNode;
+//     console.log(listItems, "List Items");
+// }
+
+// const handleEvent = (listItems) => {
+//     let listItems = createElement();
+//     listOfItems.appendChild(listItems);
+//     console.log(listItems);
+// };
+
 const addItems = () => {
     // console.log("I am adding items");
+    // let listItems = createElement();
+    // listOfItems.appendChild(listItems);
+    // console.log(listItems, "List Items");
     let items = createElement();
     listOfItems.appendChild(items);
     console.log(listOfItems);
@@ -62,3 +81,5 @@ const addItems = () => {
 
 
 button.addEventListener("click", addItems);
+
+
